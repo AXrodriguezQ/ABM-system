@@ -14,7 +14,12 @@ class UserController extends Controller
     // We create the main function to show all users.
     public function index() {
         try {
-            $users = User::all();
+
+            // As it is an endpoint that can store a lot of information, we added a pagination to it.
+            $perPage = request()->query('per_page', 10);
+            $page = request()->query('page', 1); 
+
+            $users = User::paginate($perPage, ['*'], 'page', $page);
 
             //We validate that if the user list is empty then it responds correctly.
             if ($users->isEmpty()) {
@@ -26,8 +31,19 @@ class UserController extends Controller
 
             }
 
-            // If everything is ok, show the users with their response.
-            return response()->json($users, 200);
+            // If everything is okay, show users with their appropriate answer and pagination.
+            return response()->json([
+                'data' => $users->items(),
+                'pagination' => [
+                    'total' => $users->total(),
+                    'current_page' => $users->currentPage(),
+                    'last_page' => $users->lastPage(),
+                    'per_page' => $users->perPage(),
+                    'from' => $users->firstItem(),
+                    'to' => $users->lastItem()
+                ],
+                'status' => 200
+            ], 200);
 
         // We handle the error.
         } catch (\Exception $e) {
