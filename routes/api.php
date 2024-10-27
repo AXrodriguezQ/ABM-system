@@ -15,14 +15,16 @@ Route::middleware(['jwt.auth'])->group(function () {
 
     Route::get('/users/{id}', [userController::class, 'show']);
     
+    Route::post('/users', [userController::class, 'store']);
     
     Route::put('/users/{id}', [userController::class, 'update']);
     
     Route::patch('/users/{id}', [userController::class, 'updatePartial']);
     
     Route::delete('/users/{id}', [userController::class, 'destroy']);
+
+    Route::patch('/users/password/{id}', [userController::class, 'uploadPassword']);
 });
-Route::post('/users', [userController::class, 'store']);
 
 Route::get('/', function() {
     return response()->json([
