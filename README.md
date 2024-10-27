@@ -6,6 +6,92 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+<p align="center">
+<a href="https://www.mysql.com/" target="_blank"><img src="https://somospnt.com/images/blog/cover/mysql.jpg" width="400" alt="MySql image"></a>
+<a href="https://jwt.io/" target="_blank"><img src="https://avatao.com/media/JWT-blogpost.png" width="400" alt="JWT logo"></a>
+</p>
+
+## AMB/CRUD Project
+
+This project consists of a login to access an administrator panel where registered users are managed and only those users can create new ones.
+
+# Instructions
+
+Clone or download the project then follow these steps, remember that you have to have xampp and composer on your machine to be able to start the application.
+
+- Install dependencies
+
+Open your terminal and navigate to the project folder. Then, run the following command to install Composer dependencies:
+
+```bash
+composer install
+```
+
+-  Configure the .env file
+
+Si no tienes un archivo .env, copia el archivo de ejemplo:
+
+```bash
+cp .env.example .env
+```
+
+Then, open the .env file and configure the variables according to your needs, such as the database connection:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_la_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+
+-  Generate the application key
+
+Run the following command to generate a unique key for your application:
+
+```bash
+php artisan key:generate
+```
+
+-  Migrate the database
+
+Run this command for the migrations:
+
+```bash
+php artisan migrate
+```
+
+-  Sowing data
+
+Run this command to seed the information and populate the database:
+
+```bash
+php artisan db:seed
+```
+
+-  Setting permissions (in some cases)
+
+If you are in a Unix environment, make sure the storage and bootstrap/cache folders have the correct permissions:
+
+```bash
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+```
+
+-  Start the development server
+
+After completing these steps, the server can now be started:
+
+```bash
+php artisan serve
+```
+
+## Postman collection
+
+Go to postman and then paste this file that is in the root of the project to have all the endpoints documented and with their respective information.
+AMB-CRUD system.postman_collection.json
+
+If you don't have the environment variables for postman you can paste this file to get them.
+Environment AMB.postman_environment.json
 
 ## About Laravel
 
