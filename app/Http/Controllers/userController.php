@@ -341,8 +341,50 @@ class UserController extends Controller
         }
     }
 
-    public function uploadPassword($id, $password) {
-        
+    // We create the function to change a password
+    public function uploadPassword($id, Request $request) {
+        try {
+            $user = User::find($id);
+
+            // We validate if the user exists.
+            if (!$user) {
+
+                return response()->json([
+                    'message' => 'User not found',
+                    'status' => 404
+                ], 404);
+
+            }
+
+            // We validate the user's password with the one entered.
+            if (!Hash::check($request->current_password, $user->password)) {
+                return response()->json(['error' => 'Current password invalid'], 401);
+            }
+            
+            // We validate the password
+            $request->validate([
+                'new_password' => 'required|string|min:6|',
+            ]);
+
+            // We change the password
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+            
+            // If everything is ok we return a valid response.
+            return response()->json([
+                'message' => 'Password is valid!',
+                'correct' => true,
+                'status' => 200
+            ], 200);
+
+        // We handle the error.
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'An error occurred while change the password',
+                'error' => $e->getMessage(),
+                'status' => 500
+            ], 500);
+        }
     }
 
 }
