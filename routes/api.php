@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Route;
 // The routes are protected.
 Route::middleware(['jwt.auth'])->group(function () {
 
+    Route::get('/users', [userController::class, 'index']);
     
     Route::get('/restrict/{id}', [userController::class, 'restrict']);
 
     Route::get('/users/{id}', [userController::class, 'show']);
-    
+
+    Route::post('/users', [userController::class, 'store']);
     
     Route::put('/users/{id}', [userController::class, 'update']);
     
@@ -23,8 +25,6 @@ Route::middleware(['jwt.auth'])->group(function () {
     
     Route::patch('/users/password/{id}', [userController::class, 'uploadPassword']);
 });
-Route::get('/users', [userController::class, 'index']);
-Route::post('/users', [userController::class, 'store']);
 
 Route::get('/', function() {
     return response()->json([
