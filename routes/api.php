@@ -15,7 +15,6 @@ Route::middleware(['jwt.auth'])->group(function () {
 
     Route::get('/users/{id}', [userController::class, 'show']);
     
-    Route::post('/users', [userController::class, 'store']);
     
     Route::put('/users/{id}', [userController::class, 'update']);
     
@@ -23,6 +22,7 @@ Route::middleware(['jwt.auth'])->group(function () {
     
     Route::delete('/users/{id}', [userController::class, 'destroy']);
 });
+Route::post('/users', [userController::class, 'store']);
 
 Route::get('/', function() {
     return response()->json([
