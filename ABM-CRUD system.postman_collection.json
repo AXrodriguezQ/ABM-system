@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "ecea4625-349b-4125-846b-16f3f83f58db",
+		"name": "ABM/CRUD system",
+		"description": "This collection brings together all the test endpoints, organized by functional modules. It is designed to facilitate the validation of system functionalities, providing a clear and structured reference for the development team.\n\n**Environment variables used:**\n\nURL_BASE is the initial URL of the project when running it.\n\n**Purpose:**  \nDocument and centralize all functional tests, ensuring that all team members or people who want to review an endpoint or make use of one can do so without any problem.\n\n**Instructions for use:**\n\n- All endpoints require a jwt token so you must use the auth module first\n    \n- Each request within the collection includes a detailed description of its purpose and use.\n    \n- Make sure the environment variables (URL_BASE) are set correctly according to the local environment.\n    \n- Or if you want to make the requests in the production environment copy the variable (URL_BASE_PRODUCTION)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38135533",
+		"_collection_link": "https://api444-2834.postman.co/workspace/api-Workspace~67da2ec6-4854-4a49-a9b0-7d912fa85c10/collection/38135533-ecea4625-349b-4125-846b-16f3f83f58db?action=share&source=collection_link&creator=38135533"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYWJtLXN5c3RlbS1wcm9kdWN0aW9uLnVwLnJhaWx3YXkuYXBwL2FwaS9sb2dpbiIsImlhdCI6MTczMDAwNTg2NSwiZXhwIjoxNzMwMDA5NDY1LCJuYmYiOjE3MzAwMDU4NjUsImp0aSI6Ijl1N1Zkd2RWUHcxUjdSRHUiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.w8jdj_UP5xe8Qqw4uREiLA_7_BeSkmntg1UGFSla7UY"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI5NzMxNTMxLCJleHAiOjE3Mjk3MzUxMzEsIm5iZiI6MTcyOTczMTUzMSwianRpIjoiOFZsM1dCV0ZMbDd6ZWI2SCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.QW-sy_y3XRKYMeiRF03ioJXQTd1Q2UCKvaDIHemyvHg",
+								"type": "text"
+							}
+						],
+						"url": "{{URL_BASE_PRODUCTION}}users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYWJtLXN5c3RlbS1wcm9kdWN0aW9uLnVwLnJhaWx3YXkuYXBwL2FwaS9sb2dpbiIsImlhdCI6MTczMDAwNTg2NSwiZXhwIjoxNzMwMDA5NDY1LCJuYmYiOjE3MzAwMDU4NjUsImp0aSI6Ijl1N1Zkd2RWUHcxUjdSRHUiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.w8jdj_UP5xe8Qqw4uREiLA_7_BeSkmntg1UGFSla7UY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{URL_BASE_PRODUCTION}}users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI5NzkzMDAyLCJleHAiOjE3Mjk3OTY2MDIsIm5iZiI6MTcyOTc5MzAwMiwianRpIjoiTzhsV2JrcTd6RzdFOUFzYSIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.33FOrd0JldkJSLW3FFYGcT3qu_hZ8MRWnKx6ZmaAjBE"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"is_restricted\": \"Restringido\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL_BASE_PRODUCTION}}users/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI5NzMxNTMxLCJleHAiOjE3Mjk3MzUxMzEsIm5iZiI6MTcyOTczMTUzMSwianRpIjoiOFZsM1dCV0ZMbDd6ZWI2SCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.QW-sy_y3XRKYMeiRF03ioJXQTd1Q2UCKvaDIHemyvHg"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Jose\",\r\n  \"lastname\": \"Orozco\",\r\n  \"email\": \"jose12@gmail.com\",\r\n  \"phone\": \"3015657693\",\r\n  \"password\": \"jose123\",\r\n  \"created_by\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL_BASE_PRODUCTION}}users/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI5NzMxNTMxLCJleHAiOjE3Mjk3MzUxMzEsIm5iZiI6MTcyOTczMTUzMSwianRpIjoiOFZsM1dCV0ZMbDd6ZWI2SCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.QW-sy_y3XRKYMeiRF03ioJXQTd1Q2UCKvaDIHemyvHg"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE_PRODUCTION}}users/:id",
+							"host": [
+								"{{URL_BASE_PRODUCTION}}users"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYW1iLWNydWQtYmFja2VuZC1wcm9kdWN0aW9uLnVwLnJhaWx3YXkuYXBwL2FwaS9sb2dpbiIsImlhdCI6MTcyOTk5ODg3MSwiZXhwIjoxNzMwMDAyNDcxLCJuYmYiOjE3Mjk5OTg4NzEsImp0aSI6IjJTNVVyQmdOUndPNVRSSUQiLCJzdWIiOiIzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.VWBfmrM58diyzkuvq7s-SJWbcXBidJhxZQK5nhAcXd0"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Jose\",\r\n  \"lastname\": \"Orozco\",\r\n  \"email\": \"jose@gmail.com\",\r\n  \"phone\": \"3015657693\",\r\n  \"password\": \"jose123\",\r\n  \"created_by\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL_BASE_PRODUCTION}}users"
+					},
+					"response": []
+				},
+				{
+					"name": "User restricted",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYW1iLWNydWQtYmFja2VuZC1wcm9kdWN0aW9uLnVwLnJhaWx3YXkuYXBwL2FwaS9sb2dpbiIsImlhdCI6MTcyOTk4NDY0MCwiZXhwIjoxNzI5OTg4MjQwLCJuYmYiOjE3Mjk5ODQ2NDAsImp0aSI6ImhJVVEzNjZjNXJBYnBUcE8iLCJzdWIiOiIzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.QVtRTzmAtxPG4wGVZtls065v8gPV4EEcknzKFZSz8dc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{URL_BASE_PRODUCTION}}restrict/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYWJtLXN5c3RlbS1wcm9kdWN0aW9uLnVwLnJhaWx3YXkuYXBwL2FwaS9sb2dpbiIsImlhdCI6MTczMDAwNTg2NSwiZXhwIjoxNzMwMDA5NDY1LCJuYmYiOjE3MzAwMDU4NjUsImp0aSI6Ijl1N1Zkd2RWUHcxUjdSRHUiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.w8jdj_UP5xe8Qqw4uREiLA_7_BeSkmntg1UGFSla7UY"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\": \"alex123\",\r\n    \"new_password\": \"alex123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL_BASE_PRODUCTION}}users/password/3"
+					},
+					"response": []
+				}
+			],
+			"description": "The \"Users\" folder contains all requests related to user management in the test API. The endpoints documented here allow CRUD (Create, Read, Update, Delete) operations on user resources.\n\n  \n**Purpose:**\n\nTo provide a clear and structured interface for interacting with user data, facilitating operations such as registration, retrieval of information, modification of information, and deletion of accounts.\n\n  \n**Endpoints included:**\n\n- _User Registration:_ Allows creating new users in the system that can only be entered by an already registered user.\n    \n- _Get All Users:_ Retrieves a list of all registered users.\n    \n- _Get User Info by ID:_ Retrieves details of a specific user using their ID.\n    \n- _Update Full User Info:_ Allows modifying all information for an existing user.\n    \n- _Update User Info:_ Allows updating entered data for an existing user.\n    \n- _Delete User:_ Allows deleting a user from the system.\n    \n\nNotes: Use environment variables (URL_BASE) to configure the base URL of the endpoints."
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jose@gmail.com\",\r\n    \"password\": \"jose123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL_BASE_PRODUCTION}}login"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder is the auth module that only has a login endpoint to provide security to the application.\n\n  \nThis module is responsible for validating the information and returning a jwt for the other endpoints."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOiJaak04RUJ4MzRmTmZOUWNqN1I5R0JKOUdwN2syIiwiZW1haWwiOiJ2ZXJhbWlyYW5kYXNhbXVlbDZAZ21haWwuY29tIiwicm9sZXMiOlsiQURNSU5fQ0VOVElORUxBIl19LCJpYXQiOjE3MjU0MjQ3MTMsImV4cCI6MTcyNTQyNTYxM30.HEfP6zEnjiV5t-kK9aAv7QvRsGZKG3Jx5EKoa4ffHDk"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_BASE",
+			"value": "http://localhost:"
+		},
+		{
+			"key": "PORT",
+			"value": "3002"
+		}
+	]
+}

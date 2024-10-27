@@ -88,10 +88,12 @@ php artisan serve
 ## Postman collection
 
 Go to postman and then paste this file that is in the root of the project to have all the endpoints documented and with their respective information.
-AMB-CRUD system.postman_collection.json
+
+- ABM-CRUD system.postman_collection.json
 
 If you don't have the environment variables for postman you can paste this file to get them.
-Environment AMB.postman_environment.json
+
+- Environment ABM.postman_environment.json
 
 ## About Laravel
 
